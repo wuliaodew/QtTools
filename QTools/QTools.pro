@@ -1,22 +1,22 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2013-05-22T20:44:40
+# Project created by QtCreator 2013-05-23T14:35:54
 #
 #-------------------------------------------------
 
 QT       += core gui
 
-TARGET = QtTools
+TARGET = QTools
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    serialport/win_qextserialport.cpp \
-    serialport/qextserialbase.cpp
+    win_qextserialport.cpp \
+    qextserialbase.cpp
 
 HEADERS  += mainwindow.h \
-    serialport/win_qextserialport.h \
-    serialport/qextserialbase.h
+    win_qextserialport.h \
+    qextserialbase.h
 
 FORMS    += mainwindow.ui
