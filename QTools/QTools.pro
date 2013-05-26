@@ -12,11 +12,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    win_qextserialport.cpp \
-    qextserialbase.cpp
+    serialport/win_qextserialport.cpp \
+    serialport/qextserialbase.cpp \
+    serialport/qcomport.cpp
 
 HEADERS  += mainwindow.h \
-    win_qextserialport.h \
-    qextserialbase.h
+    serialport/win_qextserialport.h \
+    serialport/qextserialbase.h \
+    serialport/qcomport.h
 
 FORMS    += mainwindow.ui
