@@ -20,6 +20,7 @@ public:
     Win_QextSerialPort myCom;
     PortSettings portcom;//串口设置参数
     bool comStateflag;//代表串口的状态
+
 public:
     explicit QComPort(QObject *parent = 0);
     //读取注册表所有的串口端，并返回所以串口数据
@@ -28,7 +29,8 @@ public:
     bool openComPort(const QString & name, const PortSettings& settings);
     void closeComPort(void);
 
-
+    QString readAll(void);
+    QString readAlltoHex(void);
 
 private:
     //读取对应index位置的串口名字

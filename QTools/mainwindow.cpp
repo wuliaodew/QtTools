@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->selechexbutton->setChecked(true);
     ui->PortBox->clear();
     ui->PortBox->addItems(wincom.readAllComToList());
     ui->bandrate->setCurrentIndex(4);
@@ -22,7 +23,23 @@ MainWindow::~MainWindow()
 
 void MainWindow::DisReiveData(void)
 {
-    ui->ReceiveText->insertPlainText(wincom.myCom.readAll());
+    QString temp;
+
+    if(wincom.myCom.bytesAvailable() != 0)//判断是否有数据读取
+    {
+        ui->ReceiveText->moveCursor(QTextCursor::End);
+
+        if(ui->timecheck->isChecked())
+            temp = nowTime.currentTime().toString("hh:mm:ss")+":  ";
+
+        if(ui->selechexbutton->isChecked())
+            temp += wincom.readAlltoHex();
+        else if(ui->selecharbutton->isChecked())
+            temp += wincom.readAll();
+
+        temp += '\r';
+        ui->ReceiveText->insertPlainText(temp);
+    }
 }
 
 void MainWindow::on_OpenButton_clicked()
@@ -111,4 +128,9 @@ void MainWindow::on_searchbutton_clicked()
 {
     ui->PortBox->clear();
     ui->PortBox->addItems(wincom.readAllComToList());
+}
+
+void MainWindow::on_RecClrButton_clicked()
+{
+    ui->ReceiveText->clear();
 }

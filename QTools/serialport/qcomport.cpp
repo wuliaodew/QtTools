@@ -10,13 +10,14 @@ QComPort::QComPort(QObject *parent) :
 {
     bool flag;
     myCom.setPortName(name);
+    myCom.setQueryMode(QextSerialBase::EventDriven);
     flag = myCom.open(QIODevice::ReadWrite);
     myCom.setStopBits(settings.StopBits);
     myCom.setParity(settings.Parity);
     myCom.setFlowControl(settings.FlowControl);
     myCom.setDataBits(settings.DataBits);
     myCom.setBaudRate(settings.BaudRate);
-    myCom.setQueryMode(QextSerialBase::EventDriven);
+
 
     if(flag == true)
     {
@@ -31,6 +32,29 @@ QComPort::QComPort(QObject *parent) :
     myCom.close();
 
     comStateflag = 0;
+ }
+
+ QString QComPort :: readAll(void)
+ {
+    QString str=myCom.readAll();
+    return str;
+ }
+
+ QString QComPort :: readAlltoHex(void)
+ {
+    QByteArray temp = myCom.readAll();
+    QString str;
+    QString stt;
+
+    str = temp.toHex();
+    str =str.toUpper();
+    for(int i = 0 ; i < str.length() ; i += 2)
+    {
+        stt += str.mid(i,2);
+        stt +=" ";
+    }
+
+    return stt;
  }
  /*
 QString getComValue(int index, QString keyorvalue)

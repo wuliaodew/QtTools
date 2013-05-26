@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <serialport/qcomport.h>
 #include <QMessageBox>
-#include<QTimer>
+#include <QTime>
 
 namespace Ui {
 class MainWindow;
@@ -28,8 +28,11 @@ private slots:
 
 
 
+    void on_RecClrButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QTime nowTime;
 };
 
 #endif // MAINWINDOW_H
