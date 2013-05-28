@@ -14,11 +14,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     serialport/win_qextserialport.cpp \
     serialport/qextserialbase.cpp \
-    serialport/qcomport.cpp
+    serialport/qcomport.cpp \
+    qsendtextedit.cpp
 
 HEADERS  += mainwindow.h \
     serialport/win_qextserialport.h \
     serialport/qextserialbase.h \
-    serialport/qcomport.h
+    serialport/qcomport.h \
+    qsendtextedit.h
 
 FORMS    += mainwindow.ui

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue May 28 17:10:27 2013
+** Created: Tue May 28 22:32:39 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -22,13 +22,13 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
-#include <QtGui/QMdiArea>
 #include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QRadioButton>
 #include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
 #include <QtGui/QWidget>
+#include <qsendtextedit.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -48,31 +48,33 @@ public:
     QPushButton *RecClrButton;
     QPlainTextEdit *ReceiveText;
     QFrame *frame_2;
-    QPlainTextEdit *plainTextEdit;
+    QSendTextEdit *SendTextEdit;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
+    QLabel *label_7;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
     QPushButton *pushButton;
-    QLabel *label_7;
     QFrame *frame_3;
+    QPushButton *searchbutton;
     QPushButton *OpenButton;
-    QWidget *formLayoutWidget;
-    QFormLayout *formLayout_3;
+    QFrame *frame_4;
+    QWidget *horizontalLayoutWidget_3;
+    QHBoxLayout *horizontalLayout_3;
+    QFormLayout *formLayout;
     QLabel *label;
     QComboBox *PortBox;
     QLabel *label_2;
     QComboBox *bandrate;
     QLabel *label_4;
     QComboBox *databox;
-    QLabel *label_3;
+    QFormLayout *formLayout_2;
     QComboBox *checkbox;
     QLabel *label_5;
     QComboBox *stopbox;
     QLabel *label_6;
     QComboBox *flowbox;
-    QPushButton *searchbutton;
-    QMdiArea *mdiArea;
+    QLabel *label_3;
     QWidget *tab_2;
     QStatusBar *statusBar;
 
@@ -162,24 +164,35 @@ public:
         ReceiveText->setTextInteractionFlags(Qt::TextSelectableByMouse);
         frame_2 = new QFrame(tab);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(510, 100, 281, 151));
+        frame_2->setGeometry(QRect(350, 120, 441, 281));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
-        plainTextEdit = new QPlainTextEdit(frame_2);
-        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
-        plainTextEdit->setGeometry(QRect(0, 40, 271, 91));
+        SendTextEdit = new QSendTextEdit(frame_2);
+        SendTextEdit->setObjectName(QString::fromUtf8("SendTextEdit"));
+        SendTextEdit->setGeometry(QRect(0, 40, 451, 131));
         QFont font3;
         font3.setPointSize(12);
         font3.setItalic(false);
-        plainTextEdit->setFont(font3);
+        SendTextEdit->setFont(font3);
         horizontalLayoutWidget_2 = new QWidget(frame_2);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(80, 0, 171, 41));
+        horizontalLayoutWidget_2->setGeometry(QRect(0, 0, 221, 41));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_7 = new QLabel(horizontalLayoutWidget_2);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
+        font4.setPointSize(12);
+        font4.setBold(true);
+        font4.setWeight(75);
+        label_7->setFont(font4);
+
+        horizontalLayout_2->addWidget(label_7);
+
         radioButton = new QRadioButton(horizontalLayoutWidget_2);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
         radioButton->setFont(font1);
@@ -192,39 +205,45 @@ public:
 
         horizontalLayout_2->addWidget(radioButton_2);
 
-        pushButton = new QPushButton(horizontalLayoutWidget_2);
+        pushButton = new QPushButton(frame_2);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(360, 10, 75, 24));
         pushButton->setFont(font1);
-
-        horizontalLayout_2->addWidget(pushButton);
-
-        label_7 = new QLabel(frame_2);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setGeometry(QRect(0, 0, 88, 39));
-        QFont font4;
-        font4.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
-        font4.setPointSize(12);
-        font4.setBold(true);
-        font4.setWeight(75);
-        label_7->setFont(font4);
         frame_3 = new QFrame(tab);
         frame_3->setObjectName(QString::fromUtf8("frame_3"));
-        frame_3->setGeometry(QRect(340, 350, 161, 211));
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
+        frame_3->setGeometry(QRect(430, 10, 295, 91));
+        frame_3->setFrameShape(QFrame::NoFrame);
+        frame_3->setFrameShadow(QFrame::Sunken);
+        searchbutton = new QPushButton(frame_3);
+        searchbutton->setObjectName(QString::fromUtf8("searchbutton"));
+        searchbutton->setGeometry(QRect(0, 60, 143, 31));
+        searchbutton->setFont(font1);
         OpenButton = new QPushButton(frame_3);
         OpenButton->setObjectName(QString::fromUtf8("OpenButton"));
-        OpenButton->setGeometry(QRect(0, 180, 161, 31));
+        OpenButton->setGeometry(QRect(149, 60, 147, 31));
         OpenButton->setFont(font1);
-        formLayoutWidget = new QWidget(frame_3);
-        formLayoutWidget->setObjectName(QString::fromUtf8("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(0, 30, 160, 152));
-        formLayout_3 = new QFormLayout(formLayoutWidget);
-        formLayout_3->setSpacing(6);
-        formLayout_3->setContentsMargins(11, 11, 11, 11);
-        formLayout_3->setObjectName(QString::fromUtf8("formLayout_3"));
-        formLayout_3->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(formLayoutWidget);
+        frame_4 = new QFrame(frame_3);
+        frame_4->setObjectName(QString::fromUtf8("frame_4"));
+        frame_4->setGeometry(QRect(0, 0, 295, 61));
+        frame_4->setFrameShape(QFrame::Box);
+        frame_4->setFrameShadow(QFrame::Raised);
+        frame_4->setMidLineWidth(0);
+        horizontalLayoutWidget_3 = new QWidget(frame_4);
+        horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
+        horizontalLayoutWidget_3->setGeometry(QRect(0, 0, 295, 61));
+        horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        formLayout = new QFormLayout();
+        formLayout->setSpacing(6);
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
+        formLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+        formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
+        formLayout->setHorizontalSpacing(2);
+        formLayout->setVerticalSpacing(2);
+        label = new QLabel(horizontalLayoutWidget_3);
         label->setObjectName(QString::fromUtf8("label"));
         QFont font5;
         font5.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
@@ -233,75 +252,80 @@ public:
         font5.setWeight(75);
         label->setFont(font5);
 
-        formLayout_3->setWidget(0, QFormLayout::LabelRole, label);
+        formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
-        PortBox = new QComboBox(formLayoutWidget);
+        PortBox = new QComboBox(horizontalLayoutWidget_3);
         PortBox->setObjectName(QString::fromUtf8("PortBox"));
 
-        formLayout_3->setWidget(0, QFormLayout::FieldRole, PortBox);
+        formLayout->setWidget(0, QFormLayout::FieldRole, PortBox);
 
-        label_2 = new QLabel(formLayoutWidget);
+        label_2 = new QLabel(horizontalLayoutWidget_3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setFont(font5);
 
-        formLayout_3->setWidget(1, QFormLayout::LabelRole, label_2);
+        formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
-        bandrate = new QComboBox(formLayoutWidget);
+        bandrate = new QComboBox(horizontalLayoutWidget_3);
         bandrate->setObjectName(QString::fromUtf8("bandrate"));
 
-        formLayout_3->setWidget(1, QFormLayout::FieldRole, bandrate);
+        formLayout->setWidget(1, QFormLayout::FieldRole, bandrate);
 
-        label_4 = new QLabel(formLayoutWidget);
+        label_4 = new QLabel(horizontalLayoutWidget_3);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setFont(font5);
 
-        formLayout_3->setWidget(2, QFormLayout::LabelRole, label_4);
+        formLayout->setWidget(2, QFormLayout::LabelRole, label_4);
 
-        databox = new QComboBox(formLayoutWidget);
+        databox = new QComboBox(horizontalLayoutWidget_3);
         databox->setObjectName(QString::fromUtf8("databox"));
 
-        formLayout_3->setWidget(2, QFormLayout::FieldRole, databox);
+        formLayout->setWidget(2, QFormLayout::FieldRole, databox);
 
-        label_3 = new QLabel(formLayoutWidget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font5);
 
-        formLayout_3->setWidget(3, QFormLayout::LabelRole, label_3);
+        horizontalLayout_3->addLayout(formLayout);
 
-        checkbox = new QComboBox(formLayoutWidget);
+        formLayout_2 = new QFormLayout();
+        formLayout_2->setSpacing(6);
+        formLayout_2->setObjectName(QString::fromUtf8("formLayout_2"));
+        formLayout_2->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
+        formLayout_2->setHorizontalSpacing(2);
+        formLayout_2->setVerticalSpacing(2);
+        checkbox = new QComboBox(horizontalLayoutWidget_3);
         checkbox->setObjectName(QString::fromUtf8("checkbox"));
 
-        formLayout_3->setWidget(3, QFormLayout::FieldRole, checkbox);
+        formLayout_2->setWidget(0, QFormLayout::FieldRole, checkbox);
 
-        label_5 = new QLabel(formLayoutWidget);
+        label_5 = new QLabel(horizontalLayoutWidget_3);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setFont(font5);
 
-        formLayout_3->setWidget(4, QFormLayout::LabelRole, label_5);
+        formLayout_2->setWidget(1, QFormLayout::LabelRole, label_5);
 
-        stopbox = new QComboBox(formLayoutWidget);
+        stopbox = new QComboBox(horizontalLayoutWidget_3);
         stopbox->setObjectName(QString::fromUtf8("stopbox"));
 
-        formLayout_3->setWidget(4, QFormLayout::FieldRole, stopbox);
+        formLayout_2->setWidget(1, QFormLayout::FieldRole, stopbox);
 
-        label_6 = new QLabel(formLayoutWidget);
+        label_6 = new QLabel(horizontalLayoutWidget_3);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setFont(font5);
 
-        formLayout_3->setWidget(5, QFormLayout::LabelRole, label_6);
+        formLayout_2->setWidget(2, QFormLayout::LabelRole, label_6);
 
-        flowbox = new QComboBox(formLayoutWidget);
+        flowbox = new QComboBox(horizontalLayoutWidget_3);
         flowbox->setObjectName(QString::fromUtf8("flowbox"));
 
-        formLayout_3->setWidget(5, QFormLayout::FieldRole, flowbox);
+        formLayout_2->setWidget(2, QFormLayout::FieldRole, flowbox);
 
-        searchbutton = new QPushButton(frame_3);
-        searchbutton->setObjectName(QString::fromUtf8("searchbutton"));
-        searchbutton->setGeometry(QRect(0, 0, 161, 31));
-        searchbutton->setFont(font1);
-        mdiArea = new QMdiArea(tab);
-        mdiArea->setObjectName(QString::fromUtf8("mdiArea"));
-        mdiArea->setGeometry(QRect(570, 330, 200, 160));
+        label_3 = new QLabel(horizontalLayoutWidget_3);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setFont(font5);
+
+        formLayout_2->setWidget(0, QFormLayout::LabelRole, label_3);
+
+
+        horizontalLayout_3->addLayout(formLayout_2);
+
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
@@ -327,11 +351,12 @@ public:
         selecharbutton->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
         timecheck->setText(QApplication::translate("MainWindow", "\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
         RecClrButton->setText(QApplication::translate("MainWindow", "\346\270\205\347\251\272", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("MainWindow", "\345\217\221\351\200\201\346\225\260\346\215\256\357\274\232", 0, QApplication::UnicodeUTF8));
         radioButton->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
         radioButton_2->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("MainWindow", "\346\270\205\347\251\272", 0, QApplication::UnicodeUTF8));
-        label_7->setText(QApplication::translate("MainWindow", "\345\217\221\351\200\201\346\225\260\346\215\256\357\274\232", 0, QApplication::UnicodeUTF8));
-        OpenButton->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200", 0, QApplication::UnicodeUTF8));
+        searchbutton->setText(QApplication::translate("MainWindow", "\344\270\262\345\217\243\346\220\234\347\264\242", 0, QApplication::UnicodeUTF8));
+        OpenButton->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200\344\270\262\345\217\243", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "\344\270\262\345\217\243\357\274\232", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("MainWindow", "\346\263\242\347\211\271\347\216\207\357\274\232", 0, QApplication::UnicodeUTF8));
         bandrate->clear();
@@ -353,7 +378,6 @@ public:
          << QApplication::translate("MainWindow", "7bit", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "8bit", 0, QApplication::UnicodeUTF8)
         );
-        label_3->setText(QApplication::translate("MainWindow", "\346\240\241\351\252\214\344\275\215\357\274\232", 0, QApplication::UnicodeUTF8));
         checkbox->clear();
         checkbox->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "None \346\227\240", 0, QApplication::UnicodeUTF8)
@@ -374,7 +398,7 @@ public:
          << QApplication::translate("MainWindow", "\347\241\254\344\273\266", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "XON/XOFF", 0, QApplication::UnicodeUTF8)
         );
-        searchbutton->setText(QApplication::translate("MainWindow", "\344\270\262\345\217\243\346\220\234\347\264\242", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("MainWindow", "\346\240\241\351\252\214\344\275\215\357\274\232", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "\344\270\262\345\217\243", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

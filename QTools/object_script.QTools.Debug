@@ -3,11 +3,11 @@ INPUT(
 ./debug\mainwindow.o
 ./debug\win_qextserialport.o
 ./debug\qextserialbase.o
-./debug\win_qextserialport.o
-./debug\qextserialbase.o
 ./debug\qcomport.o
+./debug\qsendtextedit.o
 ./debug\moc_mainwindow.o
 ./debug\moc_win_qextserialport.o
 ./debug\moc_qextserialbase.o
 ./debug\moc_qcomport.o
+./debug\moc_qsendtextedit.o
 );

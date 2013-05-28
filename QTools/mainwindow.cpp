@@ -14,11 +14,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->databox->setCurrentIndex(3);
 
     connect(&wincom.myCom,SIGNAL(readyRead()),this,SLOT(DisReiveData()));//收到数据
+    connect(ui->SendTextEdit,SIGNAL(mouseDoubleClick()),this,SLOT(sendEditData()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::sendEditData(void)
+{
+    ui->ReceiveText->appendPlainText("double click");
 }
 
 void MainWindow::DisReiveData(void)
@@ -134,3 +140,6 @@ void MainWindow::on_RecClrButton_clicked()
 {
     ui->ReceiveText->clear();
 }
+
+
+

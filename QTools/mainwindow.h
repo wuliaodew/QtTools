@@ -18,7 +18,9 @@ public:
     QComPort wincom;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    
+
+protected :
+
 private slots:
     void on_OpenButton_clicked();
 
@@ -26,13 +28,14 @@ private slots:
 
     void DisReiveData();
 
-
+    void sendEditData(void);
 
     void on_RecClrButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     QTime nowTime;
+
 };
 
 #endif // MAINWINDOW_H
