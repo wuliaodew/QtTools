@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <serialport/qcomport.h>
 #include <QMessageBox>
+#include <QDialog>
 #include <QTime>
 
 namespace Ui {
@@ -17,6 +18,8 @@ class MainWindow : public QMainWindow
 public:
     QComPort wincom;
     explicit MainWindow(QWidget *parent = 0);
+    virtual bool eventFilter(QObject *, QEvent *);
+
     ~MainWindow();
 
 protected :
@@ -31,6 +34,8 @@ private slots:
     void sendEditData(void);
 
     void on_RecClrButton_clicked();
+
+
 
 private:
     Ui::MainWindow *ui;

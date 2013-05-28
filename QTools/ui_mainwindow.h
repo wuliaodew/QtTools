@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue May 28 22:32:39 2013
+** Created: Wed May 29 07:04:01 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -28,7 +28,6 @@
 #include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
 #include <QtGui/QWidget>
-#include <qsendtextedit.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -48,7 +47,7 @@ public:
     QPushButton *RecClrButton;
     QPlainTextEdit *ReceiveText;
     QFrame *frame_2;
-    QSendTextEdit *SendTextEdit;
+    QPlainTextEdit *SendTextEdit;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_7;
@@ -167,7 +166,7 @@ public:
         frame_2->setGeometry(QRect(350, 120, 441, 281));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
-        SendTextEdit = new QSendTextEdit(frame_2);
+        SendTextEdit = new QPlainTextEdit(frame_2);
         SendTextEdit->setObjectName(QString::fromUtf8("SendTextEdit"));
         SendTextEdit->setGeometry(QRect(0, 40, 451, 131));
         QFont font3;
@@ -230,7 +229,7 @@ public:
         frame_4->setMidLineWidth(0);
         horizontalLayoutWidget_3 = new QWidget(frame_4);
         horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
-        horizontalLayoutWidget_3->setGeometry(QRect(0, 0, 295, 61));
+        horizontalLayoutWidget_3->setGeometry(QRect(0, 0, 295, 68));
         horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);

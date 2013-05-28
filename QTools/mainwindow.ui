@@ -225,7 +225,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QSendTextEdit" name="SendTextEdit">
+      <widget class="QPlainTextEdit" name="SendTextEdit">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -396,7 +396,7 @@
           <x>0</x>
           <y>0</y>
           <width>295</width>
-          <height>61</height>
+          <height>68</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -662,13 +662,6 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QSendTextEdit</class>
-   <extends>QPlainTextEdit</extends>
-   <header location="global">qsendtextedit.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
