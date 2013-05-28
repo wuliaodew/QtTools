@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sun May 26 21:28:15 2013
+** Created: Tue May 28 12:00:39 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -17,6 +17,7 @@
 #include <QtGui/QCheckBox>
 #include <QtGui/QComboBox>
 #include <QtGui/QFormLayout>
+#include <QtGui/QFrame>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -36,16 +37,9 @@ public:
     QWidget *centralWidget;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QPlainTextEdit *ReceiveText;
-    QLabel *label_8;
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QRadioButton *selechexbutton;
-    QRadioButton *selecharbutton;
-    QCheckBox *timecheck;
-    QPushButton *RecClrButton;
+    QFrame *frame;
     QPushButton *searchbutton;
-    QPushButton *OpenButton;
+    QLabel *label_8;
     QWidget *formLayoutWidget_3;
     QFormLayout *formLayout_3;
     QFormLayout *formLayout;
@@ -62,6 +56,22 @@ public:
     QComboBox *flowbox;
     QLabel *label_3;
     QLabel *label_4;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QRadioButton *selechexbutton;
+    QRadioButton *selecharbutton;
+    QCheckBox *timecheck;
+    QPushButton *RecClrButton;
+    QPushButton *OpenButton;
+    QPlainTextEdit *ReceiveText;
+    QFrame *frame_2;
+    QPlainTextEdit *plainTextEdit;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_2;
+    QRadioButton *radioButton;
+    QRadioButton *radioButton_2;
+    QPushButton *pushButton;
+    QLabel *label_7;
     QWidget *tab_2;
     QStatusBar *statusBar;
 
@@ -86,75 +96,26 @@ public:
         tabWidget->setFocusPolicy(Qt::WheelFocus);
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
-        ReceiveText = new QPlainTextEdit(tab);
-        ReceiveText->setObjectName(QString::fromUtf8("ReceiveText"));
-        ReceiveText->setGeometry(QRect(470, 40, 321, 371));
-        QFont font1;
-        font1.setKerning(true);
-        ReceiveText->setFont(font1);
-        ReceiveText->setMouseTracking(false);
-        ReceiveText->setFocusPolicy(Qt::WheelFocus);
-        ReceiveText->setContextMenuPolicy(Qt::DefaultContextMenu);
-        ReceiveText->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        ReceiveText->setUndoRedoEnabled(true);
-        ReceiveText->setLineWrapMode(QPlainTextEdit::WidgetWidth);
-        ReceiveText->setReadOnly(true);
-        ReceiveText->setTabStopWidth(80);
-        ReceiveText->setCursorWidth(1);
-        ReceiveText->setTextInteractionFlags(Qt::TextSelectableByMouse);
-        label_8 = new QLabel(tab);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setGeometry(QRect(470, 0, 81, 41));
-        QFont font2;
-        font2.setPointSize(12);
-        font2.setBold(true);
-        font2.setWeight(75);
-        label_8->setFont(font2);
-        horizontalLayoutWidget = new QWidget(tab);
-        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(550, 0, 241, 41));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        selechexbutton = new QRadioButton(horizontalLayoutWidget);
-        selechexbutton->setObjectName(QString::fromUtf8("selechexbutton"));
-        selechexbutton->setFont(font2);
-        selechexbutton->setChecked(true);
-
-        horizontalLayout->addWidget(selechexbutton);
-
-        selecharbutton = new QRadioButton(horizontalLayoutWidget);
-        selecharbutton->setObjectName(QString::fromUtf8("selecharbutton"));
-        selecharbutton->setFont(font2);
-
-        horizontalLayout->addWidget(selecharbutton);
-
-        timecheck = new QCheckBox(horizontalLayoutWidget);
-        timecheck->setObjectName(QString::fromUtf8("timecheck"));
-        timecheck->setFont(font2);
-        timecheck->setFocusPolicy(Qt::WheelFocus);
-
-        horizontalLayout->addWidget(timecheck);
-
-        RecClrButton = new QPushButton(horizontalLayoutWidget);
-        RecClrButton->setObjectName(QString::fromUtf8("RecClrButton"));
-        RecClrButton->setFont(font2);
-
-        horizontalLayout->addWidget(RecClrButton);
-
-        searchbutton = new QPushButton(tab);
+        frame = new QFrame(tab);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(450, 0, 320, 560));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        searchbutton = new QPushButton(frame);
         searchbutton->setObjectName(QString::fromUtf8("searchbutton"));
-        searchbutton->setGeometry(QRect(520, 420, 91, 31));
-        searchbutton->setFont(font2);
-        OpenButton = new QPushButton(tab);
-        OpenButton->setObjectName(QString::fromUtf8("OpenButton"));
-        OpenButton->setGeometry(QRect(680, 420, 91, 31));
-        OpenButton->setFont(font2);
-        formLayoutWidget_3 = new QWidget(tab);
+        searchbutton->setGeometry(QRect(50, 420, 91, 31));
+        QFont font1;
+        font1.setPointSize(12);
+        font1.setBold(true);
+        font1.setWeight(75);
+        searchbutton->setFont(font1);
+        label_8 = new QLabel(frame);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setGeometry(QRect(0, 0, 81, 41));
+        label_8->setFont(font1);
+        formLayoutWidget_3 = new QWidget(frame);
         formLayoutWidget_3->setObjectName(QString::fromUtf8("formLayoutWidget_3"));
-        formLayoutWidget_3->setGeometry(QRect(470, 460, 303, 82));
+        formLayoutWidget_3->setGeometry(QRect(10, 470, 303, 82));
         formLayout_3 = new QFormLayout(formLayoutWidget_3);
         formLayout_3->setSpacing(6);
         formLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -176,12 +137,12 @@ public:
 
         label_5 = new QLabel(formLayoutWidget_3);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
-        font3.setPointSize(12);
-        font3.setBold(true);
-        font3.setWeight(75);
-        label_5->setFont(font3);
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
+        font2.setPointSize(12);
+        font2.setBold(true);
+        font2.setWeight(75);
+        label_5->setFont(font2);
 
         formLayout->setWidget(2, QFormLayout::LabelRole, label_5);
 
@@ -192,13 +153,13 @@ public:
 
         label_2 = new QLabel(formLayoutWidget_3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setFont(font3);
+        label_2->setFont(font2);
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
         label = new QLabel(formLayoutWidget_3);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setFont(font3);
+        label->setFont(font2);
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
@@ -221,7 +182,7 @@ public:
 
         label_6 = new QLabel(formLayoutWidget_3);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setFont(font3);
+        label_6->setFont(font2);
 
         formLayout_2->setWidget(2, QFormLayout::LabelRole, label_6);
 
@@ -232,28 +193,121 @@ public:
 
         label_3 = new QLabel(formLayoutWidget_3);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font3);
+        label_3->setFont(font2);
 
         formLayout_2->setWidget(0, QFormLayout::LabelRole, label_3);
 
         label_4 = new QLabel(formLayoutWidget_3);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setFont(font3);
+        label_4->setFont(font2);
 
         formLayout_2->setWidget(1, QFormLayout::LabelRole, label_4);
 
 
         formLayout_3->setLayout(0, QFormLayout::FieldRole, formLayout_2);
 
+        horizontalLayoutWidget = new QWidget(frame);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(80, 0, 231, 41));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        selechexbutton = new QRadioButton(horizontalLayoutWidget);
+        selechexbutton->setObjectName(QString::fromUtf8("selechexbutton"));
+        selechexbutton->setFont(font1);
+        selechexbutton->setChecked(true);
+
+        horizontalLayout->addWidget(selechexbutton);
+
+        selecharbutton = new QRadioButton(horizontalLayoutWidget);
+        selecharbutton->setObjectName(QString::fromUtf8("selecharbutton"));
+        selecharbutton->setFont(font1);
+
+        horizontalLayout->addWidget(selecharbutton);
+
+        timecheck = new QCheckBox(horizontalLayoutWidget);
+        timecheck->setObjectName(QString::fromUtf8("timecheck"));
+        timecheck->setFont(font1);
+        timecheck->setFocusPolicy(Qt::WheelFocus);
+
+        horizontalLayout->addWidget(timecheck);
+
+        RecClrButton = new QPushButton(horizontalLayoutWidget);
+        RecClrButton->setObjectName(QString::fromUtf8("RecClrButton"));
+        RecClrButton->setFont(font1);
+
+        horizontalLayout->addWidget(RecClrButton);
+
+        OpenButton = new QPushButton(frame);
+        OpenButton->setObjectName(QString::fromUtf8("OpenButton"));
+        OpenButton->setGeometry(QRect(210, 420, 91, 31));
+        OpenButton->setFont(font1);
+        ReceiveText = new QPlainTextEdit(frame);
+        ReceiveText->setObjectName(QString::fromUtf8("ReceiveText"));
+        ReceiveText->setGeometry(QRect(0, 40, 320, 370));
+        QFont font3;
+        font3.setKerning(true);
+        ReceiveText->setFont(font3);
+        ReceiveText->setMouseTracking(false);
+        ReceiveText->setFocusPolicy(Qt::WheelFocus);
+        ReceiveText->setContextMenuPolicy(Qt::DefaultContextMenu);
+        ReceiveText->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        ReceiveText->setUndoRedoEnabled(true);
+        ReceiveText->setLineWrapMode(QPlainTextEdit::WidgetWidth);
+        ReceiveText->setReadOnly(true);
+        ReceiveText->setTabStopWidth(80);
+        ReceiveText->setCursorWidth(1);
+        ReceiveText->setTextInteractionFlags(Qt::TextSelectableByMouse);
+        frame_2 = new QFrame(tab);
+        frame_2->setObjectName(QString::fromUtf8("frame_2"));
+        frame_2->setGeometry(QRect(20, 0, 320, 560));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        plainTextEdit = new QPlainTextEdit(frame_2);
+        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
+        plainTextEdit->setGeometry(QRect(0, 40, 320, 360));
+        QFont font4;
+        font4.setPointSize(12);
+        font4.setItalic(false);
+        plainTextEdit->setFont(font4);
+        horizontalLayoutWidget_2 = new QWidget(frame_2);
+        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
+        horizontalLayoutWidget_2->setGeometry(QRect(80, 0, 231, 41));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        radioButton = new QRadioButton(horizontalLayoutWidget_2);
+        radioButton->setObjectName(QString::fromUtf8("radioButton"));
+        radioButton->setFont(font1);
+
+        horizontalLayout_2->addWidget(radioButton);
+
+        radioButton_2 = new QRadioButton(horizontalLayoutWidget_2);
+        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
+        radioButton_2->setFont(font1);
+
+        horizontalLayout_2->addWidget(radioButton_2);
+
+        pushButton = new QPushButton(horizontalLayoutWidget_2);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setFont(font1);
+
+        horizontalLayout_2->addWidget(pushButton);
+
+        label_7 = new QLabel(frame_2);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(0, 0, 88, 39));
+        QFont font5;
+        font5.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
+        font5.setPointSize(12);
+        font5.setBold(true);
+        font5.setWeight(75);
+        label_7->setFont(font5);
         tabWidget->addTab(tab, QString());
-        ReceiveText->raise();
-        label_8->raise();
-        horizontalLayoutWidget->raise();
-        searchbutton->raise();
-        OpenButton->raise();
-        label_4->raise();
-        label->raise();
-        formLayoutWidget_3->raise();
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
         tabWidget->addTab(tab_2, QString());
@@ -273,13 +327,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("MainWindow", "\346\216\245\346\224\266\346\225\260\346\215\256\357\274\232", 0, QApplication::UnicodeUTF8));
-        selechexbutton->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
-        selecharbutton->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
-        timecheck->setText(QApplication::translate("MainWindow", "\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
-        RecClrButton->setText(QApplication::translate("MainWindow", "\346\270\205\347\251\272", 0, QApplication::UnicodeUTF8));
         searchbutton->setText(QApplication::translate("MainWindow", "\344\270\262\345\217\243\346\220\234\347\264\242", 0, QApplication::UnicodeUTF8));
-        OpenButton->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("MainWindow", "\346\216\245\346\224\266\346\225\260\346\215\256\357\274\232", 0, QApplication::UnicodeUTF8));
         bandrate->clear();
         bandrate->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "600", 0, QApplication::UnicodeUTF8)
@@ -322,6 +371,15 @@ public:
         );
         label_3->setText(QApplication::translate("MainWindow", "\346\240\241\351\252\214\344\275\215\357\274\232", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("MainWindow", "\346\225\260\346\215\256\344\275\215\357\274\232", 0, QApplication::UnicodeUTF8));
+        selechexbutton->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
+        selecharbutton->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
+        timecheck->setText(QApplication::translate("MainWindow", "\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
+        RecClrButton->setText(QApplication::translate("MainWindow", "\346\270\205\347\251\272", 0, QApplication::UnicodeUTF8));
+        OpenButton->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200", 0, QApplication::UnicodeUTF8));
+        radioButton->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
+        radioButton_2->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("MainWindow", "\346\270\205\347\251\272", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("MainWindow", "\345\217\221\351\200\201\346\225\260\346\215\256\357\274\232", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "\344\270\262\345\217\243", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

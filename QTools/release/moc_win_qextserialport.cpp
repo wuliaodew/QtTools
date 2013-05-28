@@ -1,13 +1,13 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'win_qextserialport.h'
 **
-** Created: Thu May 23 14:38:04 2013
+** Created: Tue May 28 11:38:35 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../win_qextserialport.h"
+#include "../serialport/win_qextserialport.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'win_qextserialport.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
