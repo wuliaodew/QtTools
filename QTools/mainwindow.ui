@@ -240,6 +240,18 @@
          <italic>false</italic>
         </font>
        </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::WheelFocus</enum>
+       </property>
+       <property name="acceptDrops">
+        <bool>false</bool>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextEditable|Qt::TextSelectableByMouse</set>
+       </property>
       </widget>
       <widget class="QWidget" name="horizontalLayoutWidget_2">
        <property name="geometry">
@@ -323,7 +335,7 @@
         <x>430</x>
         <y>10</y>
         <width>295</width>
-        <height>91</height>
+        <height>101</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -336,7 +348,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>60</y>
+         <y>70</y>
          <width>143</width>
          <height>31</height>
         </rect>
@@ -356,7 +368,7 @@
        <property name="geometry">
         <rect>
          <x>149</x>
-         <y>60</y>
+         <y>70</y>
          <width>147</width>
          <height>31</height>
         </rect>
@@ -378,7 +390,7 @@
          <x>0</x>
          <y>0</y>
          <width>295</width>
-         <height>61</height>
+         <height>71</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -396,7 +408,7 @@
           <x>0</x>
           <y>0</y>
           <width>295</width>
-          <height>68</height>
+          <height>71</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -418,7 +430,7 @@
             <widget class="QLabel" name="label">
              <property name="font">
               <font>
-               <family>黑体</family>
+               <family>宋体</family>
                <pointsize>12</pointsize>
                <weight>75</weight>
                <bold>true</bold>
@@ -430,13 +442,23 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QComboBox" name="PortBox"/>
+            <widget class="QComboBox" name="PortBox">
+             <property name="editable">
+              <bool>false</bool>
+             </property>
+             <property name="duplicatesEnabled">
+              <bool>false</bool>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="label_2">
              <property name="font">
               <font>
-               <family>黑体</family>
+               <family>宋体</family>
                <pointsize>12</pointsize>
                <weight>75</weight>
                <bold>true</bold>
@@ -495,7 +517,7 @@
             <widget class="QLabel" name="label_4">
              <property name="font">
               <font>
-               <family>黑体</family>
+               <family>宋体</family>
                <pointsize>12</pointsize>
                <weight>75</weight>
                <bold>true</bold>
@@ -566,7 +588,7 @@
             <widget class="QLabel" name="label_5">
              <property name="font">
               <font>
-               <family>黑体</family>
+               <family>宋体</family>
                <pointsize>12</pointsize>
                <weight>75</weight>
                <bold>true</bold>
@@ -600,7 +622,7 @@
             <widget class="QLabel" name="label_6">
              <property name="font">
               <font>
-               <family>黑体</family>
+               <family>宋体</family>
                <pointsize>12</pointsize>
                <weight>75</weight>
                <bold>true</bold>
@@ -634,7 +656,7 @@
             <widget class="QLabel" name="label_3">
              <property name="font">
               <font>
-               <family>黑体</family>
+               <family>宋体</family>
                <pointsize>12</pointsize>
                <weight>75</weight>
                <bold>true</bold>

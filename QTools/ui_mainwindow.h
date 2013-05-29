@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed May 29 07:04:01 2013
+** Created: Wed May 29 11:21:06 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -173,6 +173,10 @@ public:
         font3.setPointSize(12);
         font3.setItalic(false);
         SendTextEdit->setFont(font3);
+        SendTextEdit->setMouseTracking(false);
+        SendTextEdit->setFocusPolicy(Qt::WheelFocus);
+        SendTextEdit->setAcceptDrops(false);
+        SendTextEdit->setTextInteractionFlags(Qt::TextEditable|Qt::TextSelectableByMouse);
         horizontalLayoutWidget_2 = new QWidget(frame_2);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
         horizontalLayoutWidget_2->setGeometry(QRect(0, 0, 221, 41));
@@ -210,26 +214,26 @@ public:
         pushButton->setFont(font1);
         frame_3 = new QFrame(tab);
         frame_3->setObjectName(QString::fromUtf8("frame_3"));
-        frame_3->setGeometry(QRect(430, 10, 295, 91));
+        frame_3->setGeometry(QRect(430, 10, 295, 101));
         frame_3->setFrameShape(QFrame::NoFrame);
         frame_3->setFrameShadow(QFrame::Sunken);
         searchbutton = new QPushButton(frame_3);
         searchbutton->setObjectName(QString::fromUtf8("searchbutton"));
-        searchbutton->setGeometry(QRect(0, 60, 143, 31));
+        searchbutton->setGeometry(QRect(0, 70, 143, 31));
         searchbutton->setFont(font1);
         OpenButton = new QPushButton(frame_3);
         OpenButton->setObjectName(QString::fromUtf8("OpenButton"));
-        OpenButton->setGeometry(QRect(149, 60, 147, 31));
+        OpenButton->setGeometry(QRect(149, 70, 147, 31));
         OpenButton->setFont(font1);
         frame_4 = new QFrame(frame_3);
         frame_4->setObjectName(QString::fromUtf8("frame_4"));
-        frame_4->setGeometry(QRect(0, 0, 295, 61));
+        frame_4->setGeometry(QRect(0, 0, 295, 71));
         frame_4->setFrameShape(QFrame::Box);
         frame_4->setFrameShadow(QFrame::Raised);
         frame_4->setMidLineWidth(0);
         horizontalLayoutWidget_3 = new QWidget(frame_4);
         horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
-        horizontalLayoutWidget_3->setGeometry(QRect(0, 0, 295, 68));
+        horizontalLayoutWidget_3->setGeometry(QRect(0, 0, 295, 71));
         horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -244,23 +248,21 @@ public:
         formLayout->setVerticalSpacing(2);
         label = new QLabel(horizontalLayoutWidget_3);
         label->setObjectName(QString::fromUtf8("label"));
-        QFont font5;
-        font5.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
-        font5.setPointSize(12);
-        font5.setBold(true);
-        font5.setWeight(75);
-        label->setFont(font5);
+        label->setFont(font4);
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
         PortBox = new QComboBox(horizontalLayoutWidget_3);
         PortBox->setObjectName(QString::fromUtf8("PortBox"));
+        PortBox->setEditable(false);
+        PortBox->setDuplicatesEnabled(false);
+        PortBox->setFrame(true);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, PortBox);
 
         label_2 = new QLabel(horizontalLayoutWidget_3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setFont(font5);
+        label_2->setFont(font4);
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
@@ -271,7 +273,7 @@ public:
 
         label_4 = new QLabel(horizontalLayoutWidget_3);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setFont(font5);
+        label_4->setFont(font4);
 
         formLayout->setWidget(2, QFormLayout::LabelRole, label_4);
 
@@ -296,7 +298,7 @@ public:
 
         label_5 = new QLabel(horizontalLayoutWidget_3);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setFont(font5);
+        label_5->setFont(font4);
 
         formLayout_2->setWidget(1, QFormLayout::LabelRole, label_5);
 
@@ -307,7 +309,7 @@ public:
 
         label_6 = new QLabel(horizontalLayoutWidget_3);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setFont(font5);
+        label_6->setFont(font4);
 
         formLayout_2->setWidget(2, QFormLayout::LabelRole, label_6);
 
@@ -318,7 +320,7 @@ public:
 
         label_3 = new QLabel(horizontalLayoutWidget_3);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font5);
+        label_3->setFont(font4);
 
         formLayout_2->setWidget(0, QFormLayout::LabelRole, label_3);
 

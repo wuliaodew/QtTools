@@ -14,18 +14,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->databox->setCurrentIndex(3);
 
     connect(&wincom.myCom,SIGNAL(readyRead()),this,SLOT(DisReiveData()));//收到数据
- //   connect(ui->SendTextEdit,SIGNAL(mouseDoubleClick()),this,SLOT(sendEditData()));
-    ui->SendTextEdit->installEventFilter(this);
+  //  connect(ui->SendTextEdit,SIGNAL(mouseDoubleClick()),this,SLOT(sendEditData()));
+  //  ui->SendTextEdit->installEventFilter(this);
+    ui->SendTextEdit->viewport()->installEventFilter(this);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::sendEditData(void)
-{
-    ui->ReceiveText->appendPlainText("double click");
 }
 
 void MainWindow::DisReiveData(void)
@@ -144,18 +140,23 @@ void MainWindow::on_RecClrButton_clicked()
 
 bool MainWindow::eventFilter(QObject *target, QEvent *event)
 {
-  //  if(target == ui->SendTextEdit)
- //   {
-        if(event->type() == QEvent::MouseButtonDblClick)
+    if(target == ui->SendTextEdit->viewport())
+    {
+        QMouseEvent *mousevent = (QMouseEvent *)(event);
+        if(event->type()== QEvent::MouseButtonDblClick && mousevent->buttons() == Qt::LeftButton)
         {
             ui->ReceiveText->appendPlainText("double click");
+
             return true;
         }
-  //      return false;
-  //  }
+    }
 
-    return ui->SendTextEdit->eventFilter(target,event);
+    return false;
 }
 
+void MainWindow::sendEditData(void)
+{
+    ui->ReceiveText->appendPlainText("double");
+}
 
 

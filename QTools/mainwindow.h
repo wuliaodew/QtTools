@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <serialport/qcomport.h>
 #include <QMessageBox>
-#include <QDialog>
+#include <QEvent>
 #include <QTime>
 
 namespace Ui {

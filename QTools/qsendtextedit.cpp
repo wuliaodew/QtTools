@@ -9,7 +9,7 @@ void QSendTextEdit::mouseDoubleClickEvent(QMouseEvent *e)
 {
     if(e->type() == QEvent::MouseButtonDblClick)
     {
-        appendPlainText("double click");
+   //     appendPlainText("double click");
         emit mouseDoubleClick();
     }
 
