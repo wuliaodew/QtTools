@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed May 29 11:21:06 2013
+** Created: Wed May 29 17:04:19 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -41,19 +41,25 @@ public:
     QLabel *label_8;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
-    QRadioButton *selechexbutton;
-    QRadioButton *selecharbutton;
+    QRadioButton *recHexSel;
+    QRadioButton *recCharSel;
     QCheckBox *timecheck;
-    QPushButton *RecClrButton;
+    QCheckBox *stopDisSelBox;
     QPlainTextEdit *ReceiveText;
+    QPushButton *pushButton_2;
+    QPushButton *RecClrButton;
     QFrame *frame_2;
     QPlainTextEdit *SendTextEdit;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_7;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
+    QRadioButton *sendHexSel;
+    QRadioButton *SendCharSel;
     QPushButton *pushButton;
+    QPlainTextEdit *plainTextEdit;
+    QPlainTextEdit *plainTextEdit_2;
+    QPlainTextEdit *plainTextEdit_3;
+    QPlainTextEdit *plainTextEdit_4;
     QFrame *frame_3;
     QPushButton *searchbutton;
     QPushButton *OpenButton;
@@ -100,7 +106,7 @@ public:
         tab->setObjectName(QString::fromUtf8("tab"));
         frame = new QFrame(tab);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(0, 0, 341, 560));
+        frame->setGeometry(QRect(0, 0, 351, 560));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         label_8 = new QLabel(frame);
@@ -113,24 +119,24 @@ public:
         label_8->setFont(font1);
         horizontalLayoutWidget = new QWidget(frame);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(80, 0, 259, 41));
+        horizontalLayoutWidget->setGeometry(QRect(74, 0, 271, 41));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        selechexbutton = new QRadioButton(horizontalLayoutWidget);
-        selechexbutton->setObjectName(QString::fromUtf8("selechexbutton"));
-        selechexbutton->setFont(font1);
-        selechexbutton->setChecked(true);
+        recHexSel = new QRadioButton(horizontalLayoutWidget);
+        recHexSel->setObjectName(QString::fromUtf8("recHexSel"));
+        recHexSel->setFont(font1);
+        recHexSel->setChecked(true);
 
-        horizontalLayout->addWidget(selechexbutton);
+        horizontalLayout->addWidget(recHexSel);
 
-        selecharbutton = new QRadioButton(horizontalLayoutWidget);
-        selecharbutton->setObjectName(QString::fromUtf8("selecharbutton"));
-        selecharbutton->setFont(font1);
+        recCharSel = new QRadioButton(horizontalLayoutWidget);
+        recCharSel->setObjectName(QString::fromUtf8("recCharSel"));
+        recCharSel->setFont(font1);
 
-        horizontalLayout->addWidget(selecharbutton);
+        horizontalLayout->addWidget(recCharSel);
 
         timecheck = new QCheckBox(horizontalLayoutWidget);
         timecheck->setObjectName(QString::fromUtf8("timecheck"));
@@ -139,15 +145,15 @@ public:
 
         horizontalLayout->addWidget(timecheck);
 
-        RecClrButton = new QPushButton(horizontalLayoutWidget);
-        RecClrButton->setObjectName(QString::fromUtf8("RecClrButton"));
-        RecClrButton->setFont(font1);
+        stopDisSelBox = new QCheckBox(horizontalLayoutWidget);
+        stopDisSelBox->setObjectName(QString::fromUtf8("stopDisSelBox"));
+        stopDisSelBox->setFont(font1);
 
-        horizontalLayout->addWidget(RecClrButton);
+        horizontalLayout->addWidget(stopDisSelBox);
 
         ReceiveText = new QPlainTextEdit(frame);
         ReceiveText->setObjectName(QString::fromUtf8("ReceiveText"));
-        ReceiveText->setGeometry(QRect(0, 40, 341, 521));
+        ReceiveText->setGeometry(QRect(0, 40, 341, 481));
         QFont font2;
         font2.setKerning(true);
         ReceiveText->setFont(font2);
@@ -161,14 +167,22 @@ public:
         ReceiveText->setTabStopWidth(80);
         ReceiveText->setCursorWidth(1);
         ReceiveText->setTextInteractionFlags(Qt::TextSelectableByMouse);
+        pushButton_2 = new QPushButton(frame);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(10, 530, 75, 23));
+        pushButton_2->setFont(font1);
+        RecClrButton = new QPushButton(frame);
+        RecClrButton->setObjectName(QString::fromUtf8("RecClrButton"));
+        RecClrButton->setGeometry(QRect(260, 530, 75, 24));
+        RecClrButton->setFont(font1);
         frame_2 = new QFrame(tab);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(350, 120, 441, 281));
+        frame_2->setGeometry(QRect(350, 110, 441, 451));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         SendTextEdit = new QPlainTextEdit(frame_2);
         SendTextEdit->setObjectName(QString::fromUtf8("SendTextEdit"));
-        SendTextEdit->setGeometry(QRect(0, 40, 451, 131));
+        SendTextEdit->setGeometry(QRect(0, 40, 441, 131));
         QFont font3;
         font3.setPointSize(12);
         font3.setItalic(false);
@@ -196,25 +210,43 @@ public:
 
         horizontalLayout_2->addWidget(label_7);
 
-        radioButton = new QRadioButton(horizontalLayoutWidget_2);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setFont(font1);
+        sendHexSel = new QRadioButton(horizontalLayoutWidget_2);
+        sendHexSel->setObjectName(QString::fromUtf8("sendHexSel"));
+        sendHexSel->setFont(font1);
 
-        horizontalLayout_2->addWidget(radioButton);
+        horizontalLayout_2->addWidget(sendHexSel);
 
-        radioButton_2 = new QRadioButton(horizontalLayoutWidget_2);
-        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
-        radioButton_2->setFont(font1);
+        SendCharSel = new QRadioButton(horizontalLayoutWidget_2);
+        SendCharSel->setObjectName(QString::fromUtf8("SendCharSel"));
+        SendCharSel->setFont(font1);
 
-        horizontalLayout_2->addWidget(radioButton_2);
+        horizontalLayout_2->addWidget(SendCharSel);
 
         pushButton = new QPushButton(frame_2);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(360, 10, 75, 24));
         pushButton->setFont(font1);
+        plainTextEdit = new QPlainTextEdit(frame_2);
+        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
+        plainTextEdit->setGeometry(QRect(0, 200, 441, 40));
+        QFont font5;
+        font5.setPointSize(12);
+        plainTextEdit->setFont(font5);
+        plainTextEdit_2 = new QPlainTextEdit(frame_2);
+        plainTextEdit_2->setObjectName(QString::fromUtf8("plainTextEdit_2"));
+        plainTextEdit_2->setGeometry(QRect(0, 250, 441, 40));
+        plainTextEdit_2->setFont(font5);
+        plainTextEdit_3 = new QPlainTextEdit(frame_2);
+        plainTextEdit_3->setObjectName(QString::fromUtf8("plainTextEdit_3"));
+        plainTextEdit_3->setGeometry(QRect(0, 300, 441, 40));
+        plainTextEdit_3->setFont(font5);
+        plainTextEdit_4 = new QPlainTextEdit(frame_2);
+        plainTextEdit_4->setObjectName(QString::fromUtf8("plainTextEdit_4"));
+        plainTextEdit_4->setGeometry(QRect(0, 350, 441, 40));
+        plainTextEdit_4->setFont(font5);
         frame_3 = new QFrame(tab);
         frame_3->setObjectName(QString::fromUtf8("frame_3"));
-        frame_3->setGeometry(QRect(430, 10, 295, 101));
+        frame_3->setGeometry(QRect(350, 10, 295, 101));
         frame_3->setFrameShape(QFrame::NoFrame);
         frame_3->setFrameShadow(QFrame::Sunken);
         searchbutton = new QPushButton(frame_3);
@@ -348,13 +380,15 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("MainWindow", "\346\216\245\346\224\266\346\225\260\346\215\256\357\274\232", 0, QApplication::UnicodeUTF8));
-        selechexbutton->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
-        selecharbutton->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
+        recHexSel->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
+        recCharSel->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
         timecheck->setText(QApplication::translate("MainWindow", "\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
+        stopDisSelBox->setText(QApplication::translate("MainWindow", "\345\201\234\346\255\242\346\230\276\347\244\272", 0, QApplication::UnicodeUTF8));
+        pushButton_2->setText(QApplication::translate("MainWindow", "\346\225\260\346\215\256\344\277\235\345\255\230", 0, QApplication::UnicodeUTF8));
         RecClrButton->setText(QApplication::translate("MainWindow", "\346\270\205\347\251\272", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("MainWindow", "\345\217\221\351\200\201\346\225\260\346\215\256\357\274\232", 0, QApplication::UnicodeUTF8));
-        radioButton->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
-        radioButton_2->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
+        sendHexSel->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
+        SendCharSel->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("MainWindow", "\346\270\205\347\251\272", 0, QApplication::UnicodeUTF8));
         searchbutton->setText(QApplication::translate("MainWindow", "\344\270\262\345\217\243\346\220\234\347\264\242", 0, QApplication::UnicodeUTF8));
         OpenButton->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200\344\270\262\345\217\243", 0, QApplication::UnicodeUTF8));

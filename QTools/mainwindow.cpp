@@ -7,9 +7,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->selechexbutton->setChecked(true);
-    ui->PortBox->clear();
-    ui->PortBox->addItems(wincom.readAllComToList());
+    ui->recHexSel->setChecked(true);
+    ui->sendHexSel->setChecked(true);
+    emit ui->searchbutton->click();
     ui->bandrate->setCurrentIndex(4);
     ui->databox->setCurrentIndex(3);
 
@@ -24,6 +24,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//显示接收数据
 void MainWindow::DisReiveData(void)
 {
     QString temp;
@@ -33,15 +34,17 @@ void MainWindow::DisReiveData(void)
         ui->ReceiveText->moveCursor(QTextCursor::End);
 
         if(ui->timecheck->isChecked())
-            temp = nowTime.currentTime().toString("hh:mm:ss")+":  ";
+            temp = "【"+nowTime.currentDateTime().toString("yy-MM-dd hh:mm:ss")+"】<<< ";
 
-        if(ui->selechexbutton->isChecked())
+        if(ui->recHexSel->isChecked())
             temp += wincom.readAlltoHex();
-        else if(ui->selecharbutton->isChecked())
+        else if(ui->recCharSel->isChecked())
             temp += wincom.readAll();
 
         temp += '\r';
-        ui->ReceiveText->insertPlainText(temp);
+
+        if(!ui->stopDisSelBox->isChecked())
+          ui->ReceiveText->insertPlainText(temp);
     }
 }
 
@@ -125,19 +128,18 @@ void MainWindow::on_OpenButton_clicked()
 
     }
 }
-
-
+//搜索串口
 void MainWindow::on_searchbutton_clicked()
 {
     ui->PortBox->clear();
     ui->PortBox->addItems(wincom.readAllComToList());
 }
-
+//清除接收数据
 void MainWindow::on_RecClrButton_clicked()
 {
     ui->ReceiveText->clear();
 }
-
+//事件过滤器
 bool MainWindow::eventFilter(QObject *target, QEvent *event)
 {
     if(target == ui->SendTextEdit->viewport())

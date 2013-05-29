@@ -5,7 +5,7 @@
 #include <serialport/qcomport.h>
 #include <QMessageBox>
 #include <QEvent>
-#include <QTime>
+#include <QDateTime>
 
 namespace Ui {
 class MainWindow;
@@ -39,7 +39,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QTime nowTime;
+    QDateTime nowTime;
 
 };
 
