@@ -7,16 +7,20 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->recHexSel->setChecked(true);
-    ui->sendHexSel->setChecked(true);
+    ui->recCharSel->setChecked(true);
+    ui->sendCharSel->setChecked(true);
     emit ui->searchbutton->click();
     ui->bandrate->setCurrentIndex(4);
     ui->databox->setCurrentIndex(3);
+    ui->timecheck->setCheckState(Qt::Checked);
 
+    connect(&autosendtimer,SIGNAL(timeout()),this,SLOT(autoSend()));
     connect(&wincom.myCom,SIGNAL(readyRead()),this,SLOT(DisReiveData()));//收到数据
-  //  connect(ui->SendTextEdit,SIGNAL(mouseDoubleClick()),this,SLOT(sendEditData()));
-  //  ui->SendTextEdit->installEventFilter(this);
-    ui->SendTextEdit->viewport()->installEventFilter(this);
+    ui->SendTextEdit->viewport()->installEventFilter(this);//初始化过滤器
+    ui->sendTextEdit_1->viewport()->installEventFilter(this);
+    ui->sendTextEdit_2->viewport()->installEventFilter(this);
+    ui->sendTextEdit_3->viewport()->installEventFilter(this);
+    ui->sendTextEdit_4->viewport()->installEventFilter(this);
 }
 
 MainWindow::~MainWindow()
@@ -34,7 +38,7 @@ void MainWindow::DisReiveData(void)
         ui->ReceiveText->moveCursor(QTextCursor::End);
 
         if(ui->timecheck->isChecked())
-            temp = "【"+nowTime.currentDateTime().toString("yy-MM-dd hh:mm:ss")+"】<<< ";
+            temp = "【"+nowTime.currentDateTime().toString("yy/MM/dd hh:mm:ss")+"】<<< ";
 
         if(ui->recHexSel->isChecked())
             temp += wincom.readAlltoHex();
@@ -46,6 +50,31 @@ void MainWindow::DisReiveData(void)
         if(!ui->stopDisSelBox->isChecked())
           ui->ReceiveText->insertPlainText(temp);
     }
+}
+
+void MainWindow::SendData(QString sbuf)
+{
+    qint64 sendcnt;
+
+    if(ui->sendCharSel->isChecked())
+        sendcnt = wincom.WriteString(sbuf);
+    else if(ui->sendHexSel->isChecked())
+        sendcnt = wincom.WriteHex(sbuf);
+
+    if(sendcnt > 0)
+    {
+        sbuf.insert(0,"【发送数据"+nowTime.currentDateTime().toString("MM/dd hh:mm:ss")+"】>>>");
+        ui->statusBar->showMessage(sbuf);
+    }
+    else
+    {
+        ui->statusBar->showMessage("提醒： 请打串口或输入数据！！！！！");
+    }
+}
+
+void MainWindow::autoSend(void)
+{
+    SendData(ui->SendTextEdit->toPlainText());
 }
 
 void MainWindow::on_OpenButton_clicked()
@@ -139,26 +168,86 @@ void MainWindow::on_RecClrButton_clicked()
 {
     ui->ReceiveText->clear();
 }
+
 //事件过滤器
 bool MainWindow::eventFilter(QObject *target, QEvent *event)
 {
-    if(target == ui->SendTextEdit->viewport())
-    {
-        QMouseEvent *mousevent = (QMouseEvent *)(event);
-        if(event->type()== QEvent::MouseButtonDblClick && mousevent->buttons() == Qt::LeftButton)
-        {
-            ui->ReceiveText->appendPlainText("double click");
 
-            return true;
-        }
+    QMouseEvent *mousevent = (QMouseEvent *)(event);
+    if(event->type()== QEvent::MouseButtonDblClick && mousevent->buttons() == Qt::LeftButton)
+    {
+        if(target == ui->SendTextEdit->viewport())
+            SendData(ui->SendTextEdit->toPlainText());
+        else if (target == ui->sendTextEdit_1->viewport())
+            SendData(ui->sendTextEdit_1->toPlainText());
+        else if (target == ui->sendTextEdit_2->viewport())
+            SendData(ui->sendTextEdit_2->toPlainText());
+        else if (target == ui->sendTextEdit_3->viewport())
+            SendData(ui->sendTextEdit_3->toPlainText());
+        else if (target == ui->sendTextEdit_4->viewport())
+            SendData(ui->sendTextEdit_4->toPlainText());
+
+        return true;
     }
 
     return false;
 }
 
-void MainWindow::sendEditData(void)
+
+//清空发送数据框
+void MainWindow::on_pushButton_clicked()
 {
-    ui->ReceiveText->appendPlainText("double");
+    ui->SendTextEdit->clear();
+}
+//自动发送
+void MainWindow::on_autosendBox_clicked()
+{
+    if(ui->autosendBox->isChecked())
+    {
+        if(ui->sendmsBox->value()!= 0)
+        {
+             autosendtimer.start(ui->sendmsBox->value());
+        }
+        else
+        {
+            ui->statusBar->showMessage("提醒： 输入时间无效或为输入！！！！！！");
+        }
+    }
+    else
+    {
+        autosendtimer.stop();
+    }
 }
 
+void MainWindow::on_sendmsBox_valueChanged(int arg1)
+{
+    if(ui->autosendBox->isChecked())
+    {
+        if(arg1 != 0)
+        {
+            autosendtimer.start(arg1);
+        }
+        else
+        {
+            autosendtimer.stop();
+        }
+    }
+}
 
+void MainWindow::on_pushButton_2_clicked()
+{
+    QString savepath = QDesktopServices::storageLocation(QDesktopServices::DesktopLocation)+"/rec.txt";//保存到桌面
+    QString path = QFileDialog::getSaveFileName(this, tr("Save File"),savepath,
+                                                tr("TEXT (*.txt)"));
+
+    if(path.length()!= 0)
+    {
+        QFile *savefile = new QFile(path);
+
+        savefile->open(QIODevice::WriteOnly|QIODevice::Truncate|QIODevice::Text);
+        savefile->write(ui->ReceiveText->toPlainText().toAscii());
+
+        savefile->close();
+    }
+
+}

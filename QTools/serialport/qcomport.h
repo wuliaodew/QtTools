@@ -31,6 +31,8 @@ public:
 
     QString readAll(void);
     QString readAlltoHex(void);
+    qint64 WriteString(QString str);
+    qint64 WriteHex(QString str);
 
 private:
     //读取对应index位置的串口名字

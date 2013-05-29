@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed May 29 17:04:19 2013
+** Created: Wed May 29 22:08:24 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -25,8 +25,10 @@
 #include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QRadioButton>
+#include <QtGui/QSpinBox>
 #include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
+#include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -54,16 +56,21 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_7;
     QRadioButton *sendHexSel;
-    QRadioButton *SendCharSel;
+    QRadioButton *sendCharSel;
     QPushButton *pushButton;
-    QPlainTextEdit *plainTextEdit;
-    QPlainTextEdit *plainTextEdit_2;
-    QPlainTextEdit *plainTextEdit_3;
-    QPlainTextEdit *plainTextEdit_4;
-    QFrame *frame_3;
-    QPushButton *searchbutton;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QPlainTextEdit *sendTextEdit_1;
+    QPlainTextEdit *sendTextEdit_2;
+    QPlainTextEdit *sendTextEdit_3;
+    QPlainTextEdit *sendTextEdit_4;
+    QPushButton *sendButton;
+    QWidget *horizontalLayoutWidget_4;
+    QHBoxLayout *horizontalLayout_4;
+    QCheckBox *autosendBox;
+    QSpinBox *sendmsBox;
     QPushButton *OpenButton;
-    QFrame *frame_4;
+    QPushButton *searchbutton;
     QWidget *horizontalLayoutWidget_3;
     QHBoxLayout *horizontalLayout_3;
     QFormLayout *formLayout;
@@ -74,12 +81,12 @@ public:
     QLabel *label_4;
     QComboBox *databox;
     QFormLayout *formLayout_2;
+    QLabel *label_3;
     QComboBox *checkbox;
     QLabel *label_5;
     QComboBox *stopbox;
     QLabel *label_6;
     QComboBox *flowbox;
-    QLabel *label_3;
     QWidget *tab_2;
     QStatusBar *statusBar;
 
@@ -119,7 +126,7 @@ public:
         label_8->setFont(font1);
         horizontalLayoutWidget = new QWidget(frame);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(74, 0, 271, 41));
+        horizontalLayoutWidget->setGeometry(QRect(74, 0, 275, 41));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -155,6 +162,7 @@ public:
         ReceiveText->setObjectName(QString::fromUtf8("ReceiveText"));
         ReceiveText->setGeometry(QRect(0, 40, 341, 481));
         QFont font2;
+        font2.setPointSize(12);
         font2.setKerning(true);
         ReceiveText->setFont(font2);
         ReceiveText->setMouseTracking(false);
@@ -190,10 +198,10 @@ public:
         SendTextEdit->setMouseTracking(false);
         SendTextEdit->setFocusPolicy(Qt::WheelFocus);
         SendTextEdit->setAcceptDrops(false);
-        SendTextEdit->setTextInteractionFlags(Qt::TextEditable|Qt::TextSelectableByMouse);
+        SendTextEdit->setTextInteractionFlags(Qt::TextEditorInteraction);
         horizontalLayoutWidget_2 = new QWidget(frame_2);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(0, 0, 221, 41));
+        horizontalLayoutWidget_2->setGeometry(QRect(0, 0, 222, 41));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -216,56 +224,97 @@ public:
 
         horizontalLayout_2->addWidget(sendHexSel);
 
-        SendCharSel = new QRadioButton(horizontalLayoutWidget_2);
-        SendCharSel->setObjectName(QString::fromUtf8("SendCharSel"));
-        SendCharSel->setFont(font1);
+        sendCharSel = new QRadioButton(horizontalLayoutWidget_2);
+        sendCharSel->setObjectName(QString::fromUtf8("sendCharSel"));
+        sendCharSel->setFont(font1);
 
-        horizontalLayout_2->addWidget(SendCharSel);
+        horizontalLayout_2->addWidget(sendCharSel);
 
         pushButton = new QPushButton(frame_2);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(360, 10, 75, 24));
         pushButton->setFont(font1);
-        plainTextEdit = new QPlainTextEdit(frame_2);
-        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
-        plainTextEdit->setGeometry(QRect(0, 200, 441, 40));
+        verticalLayoutWidget = new QWidget(frame_2);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(0, 220, 441, 221));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setSpacing(20);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        sendTextEdit_1 = new QPlainTextEdit(verticalLayoutWidget);
+        sendTextEdit_1->setObjectName(QString::fromUtf8("sendTextEdit_1"));
         QFont font5;
         font5.setPointSize(12);
-        plainTextEdit->setFont(font5);
-        plainTextEdit_2 = new QPlainTextEdit(frame_2);
-        plainTextEdit_2->setObjectName(QString::fromUtf8("plainTextEdit_2"));
-        plainTextEdit_2->setGeometry(QRect(0, 250, 441, 40));
-        plainTextEdit_2->setFont(font5);
-        plainTextEdit_3 = new QPlainTextEdit(frame_2);
-        plainTextEdit_3->setObjectName(QString::fromUtf8("plainTextEdit_3"));
-        plainTextEdit_3->setGeometry(QRect(0, 300, 441, 40));
-        plainTextEdit_3->setFont(font5);
-        plainTextEdit_4 = new QPlainTextEdit(frame_2);
-        plainTextEdit_4->setObjectName(QString::fromUtf8("plainTextEdit_4"));
-        plainTextEdit_4->setGeometry(QRect(0, 350, 441, 40));
-        plainTextEdit_4->setFont(font5);
-        frame_3 = new QFrame(tab);
-        frame_3->setObjectName(QString::fromUtf8("frame_3"));
-        frame_3->setGeometry(QRect(350, 10, 295, 101));
-        frame_3->setFrameShape(QFrame::NoFrame);
-        frame_3->setFrameShadow(QFrame::Sunken);
-        searchbutton = new QPushButton(frame_3);
-        searchbutton->setObjectName(QString::fromUtf8("searchbutton"));
-        searchbutton->setGeometry(QRect(0, 70, 143, 31));
-        searchbutton->setFont(font1);
-        OpenButton = new QPushButton(frame_3);
+        sendTextEdit_1->setFont(font5);
+
+        verticalLayout->addWidget(sendTextEdit_1);
+
+        sendTextEdit_2 = new QPlainTextEdit(verticalLayoutWidget);
+        sendTextEdit_2->setObjectName(QString::fromUtf8("sendTextEdit_2"));
+        sendTextEdit_2->setFont(font5);
+
+        verticalLayout->addWidget(sendTextEdit_2);
+
+        sendTextEdit_3 = new QPlainTextEdit(verticalLayoutWidget);
+        sendTextEdit_3->setObjectName(QString::fromUtf8("sendTextEdit_3"));
+        sendTextEdit_3->setFont(font5);
+
+        verticalLayout->addWidget(sendTextEdit_3);
+
+        sendTextEdit_4 = new QPlainTextEdit(verticalLayoutWidget);
+        sendTextEdit_4->setObjectName(QString::fromUtf8("sendTextEdit_4"));
+        sendTextEdit_4->setFont(font5);
+
+        verticalLayout->addWidget(sendTextEdit_4);
+
+        sendButton = new QPushButton(frame_2);
+        sendButton->setObjectName(QString::fromUtf8("sendButton"));
+        sendButton->setGeometry(QRect(360, 180, 75, 24));
+        sendButton->setFont(font1);
+        horizontalLayoutWidget_4 = new QWidget(frame_2);
+        horizontalLayoutWidget_4->setObjectName(QString::fromUtf8("horizontalLayoutWidget_4"));
+        horizontalLayoutWidget_4->setGeometry(QRect(0, 180, 191, 31));
+        horizontalLayout_4 = new QHBoxLayout(horizontalLayoutWidget_4);
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        autosendBox = new QCheckBox(horizontalLayoutWidget_4);
+        autosendBox->setObjectName(QString::fromUtf8("autosendBox"));
+        QFont font6;
+        font6.setPointSize(10);
+        font6.setBold(true);
+        font6.setItalic(false);
+        font6.setWeight(75);
+        autosendBox->setFont(font6);
+
+        horizontalLayout_4->addWidget(autosendBox);
+
+        sendmsBox = new QSpinBox(horizontalLayoutWidget_4);
+        sendmsBox->setObjectName(QString::fromUtf8("sendmsBox"));
+        sendmsBox->setMaximum(10000);
+        sendmsBox->setValue(10);
+
+        horizontalLayout_4->addWidget(sendmsBox);
+
+        horizontalLayoutWidget_2->raise();
+        pushButton->raise();
+        verticalLayoutWidget->raise();
+        sendButton->raise();
+        horizontalLayoutWidget_4->raise();
+        SendTextEdit->raise();
+        OpenButton = new QPushButton(tab);
         OpenButton->setObjectName(QString::fromUtf8("OpenButton"));
-        OpenButton->setGeometry(QRect(149, 70, 147, 31));
+        OpenButton->setGeometry(QRect(650, 30, 140, 67));
         OpenButton->setFont(font1);
-        frame_4 = new QFrame(frame_3);
-        frame_4->setObjectName(QString::fromUtf8("frame_4"));
-        frame_4->setGeometry(QRect(0, 0, 295, 71));
-        frame_4->setFrameShape(QFrame::Box);
-        frame_4->setFrameShadow(QFrame::Raised);
-        frame_4->setMidLineWidth(0);
-        horizontalLayoutWidget_3 = new QWidget(frame_4);
+        searchbutton = new QPushButton(tab);
+        searchbutton->setObjectName(QString::fromUtf8("searchbutton"));
+        searchbutton->setGeometry(QRect(650, 0, 140, 31));
+        searchbutton->setFont(font1);
+        horizontalLayoutWidget_3 = new QWidget(tab);
         horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
-        horizontalLayoutWidget_3->setGeometry(QRect(0, 0, 295, 71));
+        horizontalLayoutWidget_3->setGeometry(QRect(350, 30, 301, 71));
         horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -323,6 +372,12 @@ public:
         formLayout_2->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         formLayout_2->setHorizontalSpacing(2);
         formLayout_2->setVerticalSpacing(2);
+        label_3 = new QLabel(horizontalLayoutWidget_3);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setFont(font4);
+
+        formLayout_2->setWidget(0, QFormLayout::LabelRole, label_3);
+
         checkbox = new QComboBox(horizontalLayoutWidget_3);
         checkbox->setObjectName(QString::fromUtf8("checkbox"));
 
@@ -350,12 +405,6 @@ public:
 
         formLayout_2->setWidget(2, QFormLayout::FieldRole, flowbox);
 
-        label_3 = new QLabel(horizontalLayoutWidget_3);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font4);
-
-        formLayout_2->setWidget(0, QFormLayout::LabelRole, label_3);
-
 
         horizontalLayout_3->addLayout(formLayout_2);
 
@@ -366,6 +415,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
+        statusBar->setFont(font4);
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
@@ -388,10 +438,12 @@ public:
         RecClrButton->setText(QApplication::translate("MainWindow", "\346\270\205\347\251\272", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("MainWindow", "\345\217\221\351\200\201\346\225\260\346\215\256\357\274\232", 0, QApplication::UnicodeUTF8));
         sendHexSel->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
-        SendCharSel->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
+        sendCharSel->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("MainWindow", "\346\270\205\347\251\272", 0, QApplication::UnicodeUTF8));
-        searchbutton->setText(QApplication::translate("MainWindow", "\344\270\262\345\217\243\346\220\234\347\264\242", 0, QApplication::UnicodeUTF8));
+        sendButton->setText(QApplication::translate("MainWindow", "\345\217\221\351\200\201", 0, QApplication::UnicodeUTF8));
+        autosendBox->setText(QApplication::translate("MainWindow", "\350\207\252\345\212\250\345\217\221\351\200\201(ms):", 0, QApplication::UnicodeUTF8));
         OpenButton->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200\344\270\262\345\217\243", 0, QApplication::UnicodeUTF8));
+        searchbutton->setText(QApplication::translate("MainWindow", "\344\270\262\345\217\243\346\220\234\347\264\242", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "\344\270\262\345\217\243\357\274\232", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("MainWindow", "\346\263\242\347\211\271\347\216\207\357\274\232", 0, QApplication::UnicodeUTF8));
         bandrate->clear();
@@ -413,6 +465,7 @@ public:
          << QApplication::translate("MainWindow", "7bit", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "8bit", 0, QApplication::UnicodeUTF8)
         );
+        label_3->setText(QApplication::translate("MainWindow", "\346\240\241\351\252\214\344\275\215\357\274\232", 0, QApplication::UnicodeUTF8));
         checkbox->clear();
         checkbox->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "None \346\227\240", 0, QApplication::UnicodeUTF8)
@@ -433,7 +486,6 @@ public:
          << QApplication::translate("MainWindow", "\347\241\254\344\273\266", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "XON/XOFF", 0, QApplication::UnicodeUTF8)
         );
-        label_3->setText(QApplication::translate("MainWindow", "\346\240\241\351\252\214\344\275\215\357\274\232", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "\344\270\262\345\217\243", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

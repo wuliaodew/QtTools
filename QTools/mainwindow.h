@@ -6,6 +6,10 @@
 #include <QMessageBox>
 #include <QEvent>
 #include <QDateTime>
+#include <QTimer>
+#include <QFileDialog>
+#include <QString>
+#include <QDesktopServices>
 
 namespace Ui {
 class MainWindow;
@@ -31,15 +35,23 @@ private slots:
 
     void DisReiveData();
 
-    void sendEditData(void);
-
     void on_RecClrButton_clicked();
 
+    void autoSend(void);
 
+    void on_pushButton_clicked();
+
+    void on_autosendBox_clicked();
+
+    void on_sendmsBox_valueChanged(int arg1);
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
     QDateTime nowTime;
+    QTimer autosendtimer;
+    void SendData(QString sbuf);
 
 };
 

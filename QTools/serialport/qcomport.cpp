@@ -18,10 +18,9 @@ QComPort::QComPort(QObject *parent) :
     myCom.setDataBits(settings.DataBits);
     myCom.setBaudRate(settings.BaudRate);
 
-
     if(flag == true)
     {
-         comStateflag = 1;
+         comStateflag = true;
     }
 
     return flag;
@@ -31,7 +30,7 @@ QComPort::QComPort(QObject *parent) :
  {
     myCom.close();
 
-    comStateflag = 0;
+    comStateflag = false;
  }
 
  QString QComPort :: readAll(void)
@@ -144,6 +143,27 @@ QStringList QComPort::readAllComToList(void)
     }
 
     return comlist;
+}
+
+
+qint64 QComPort::WriteString(QString str)
+{
+    QByteArray buf=str.toLatin1();
+
+    if(comStateflag == true)
+        return myCom.write(buf);
+    else
+        return -1;
+}
+
+qint64 QComPort::WriteHex(QString str)
+{
+    QByteArray buf=QByteArray::fromHex(str.toLatin1());
+
+    if(comStateflag == true)
+        return myCom.write(buf);
+    else
+        return -1;
 }
 
 /*

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qsendtextedit.h'
 **
-** Created: Tue May 28 22:32:41 2013
+** Created: Wed May 29 22:08:34 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
