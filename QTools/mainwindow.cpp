@@ -7,15 +7,17 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    emit ui->searchbutton->click();
     ui->recCharSel->setChecked(true);
     ui->sendCharSel->setChecked(true);
-    emit ui->searchbutton->click();
     ui->bandrate->setCurrentIndex(4);
     ui->databox->setCurrentIndex(3);
     ui->timecheck->setCheckState(Qt::Checked);
+    ui->linecheckBox->setCheckState(Qt::Checked);
 
+    distimer.start(10);
     connect(&autosendtimer,SIGNAL(timeout()),this,SLOT(autoSend()));
-    connect(&wincom.myCom,SIGNAL(readyRead()),this,SLOT(DisReiveData()));//收到数据
+    connect(&distimer,SIGNAL(timeout()),this,SLOT(DisReiveData()));
     ui->SendTextEdit->viewport()->installEventFilter(this);//初始化过滤器
     ui->sendTextEdit_1->viewport()->installEventFilter(this);
     ui->sendTextEdit_2->viewport()->installEventFilter(this);
@@ -31,30 +33,33 @@ MainWindow::~MainWindow()
 //显示接收数据
 void MainWindow::DisReiveData(void)
 {
-    QString temp;
-
     if(wincom.myCom.bytesAvailable() != 0)//判断是否有数据读取
     {
-        ui->ReceiveText->moveCursor(QTextCursor::End);
+        QString temp;
 
         if(ui->timecheck->isChecked())
-            temp = "【"+nowTime.currentDateTime().toString("yy/MM/dd hh:mm:ss")+"】<<< ";
+            temp = "【"+nowTime.currentDateTime().toString("MM/dd hh:mm:ss:zzz")+"】<<< ";
 
         if(ui->recHexSel->isChecked())
             temp += wincom.readAlltoHex();
         else if(ui->recCharSel->isChecked())
             temp += wincom.readAll();
 
-        temp += '\r';
+        if(ui->linecheckBox->isChecked())
+            temp += '\r';
 
         if(!ui->stopDisSelBox->isChecked())
-          ui->ReceiveText->insertPlainText(temp);
+        {
+            ui->ReceiveText->moveCursor(QTextCursor::End);
+            ui->ReceiveText->insertPlainText(temp);
+            ui->ReceiveText->moveCursor(QTextCursor::End);
+        }
     }
 }
 
 void MainWindow::SendData(QString sbuf)
 {
-    qint64 sendcnt;
+    qint64 sendcnt = 0;
 
     if(ui->sendCharSel->isChecked())
         sendcnt = wincom.WriteString(sbuf);
@@ -63,16 +68,21 @@ void MainWindow::SendData(QString sbuf)
 
     if(sendcnt > 0)
     {
-        sbuf.insert(0,"【发送数据"+nowTime.currentDateTime().toString("MM/dd hh:mm:ss")+"】>>>");
+        sbuf.insert(0,"【发送数据"+nowTime.currentDateTime().toString("M/d h:m:s:z")+"】>>>");
         ui->statusBar->showMessage(sbuf);
     }
     else
     {
-        ui->statusBar->showMessage("提醒： 请打串口或输入数据！！！！！");
+        ui->statusBar->showMessage("提醒： 请打开串口或输入数据！！！！！");
     }
 }
 
 void MainWindow::autoSend(void)
+{
+    SendData(ui->SendTextEdit->toPlainText());
+}
+
+void MainWindow::on_sendButton_clicked()
 {
     SendData(ui->SendTextEdit->toPlainText());
 }
@@ -139,6 +149,7 @@ void MainWindow::on_OpenButton_clicked()
         ui->databox->setEnabled(false);
         ui->flowbox->setEnabled(false);
         ui->stopbox->setEnabled(false);
+        ui->searchbutton->setEnabled(false);
         ui->OpenButton->setText(tr("关闭"));
 
     }
@@ -151,10 +162,10 @@ void MainWindow::on_OpenButton_clicked()
         ui->checkbox->setEnabled(true);
         ui->databox->setEnabled(true);
         ui->flowbox->setEnabled(true);
+        ui->searchbutton->setEnabled(true);
 
         ui->stopbox->setEnabled(true);
         ui->OpenButton->setText(tr("打开"));
-
     }
 }
 //搜索串口
@@ -198,6 +209,10 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
 void MainWindow::on_pushButton_clicked()
 {
     ui->SendTextEdit->clear();
+    ui->sendTextEdit_1->clear();
+    ui->sendTextEdit_2->clear();
+    ui->sendTextEdit_3->clear();
+    ui->sendTextEdit_4->clear();
 }
 //自动发送
 void MainWindow::on_autosendBox_clicked()
@@ -251,3 +266,5 @@ void MainWindow::on_pushButton_2_clicked()
     }
 
 }
+
+

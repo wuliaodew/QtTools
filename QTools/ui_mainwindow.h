@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed May 29 22:08:24 2013
+** Created: Thu May 30 17:03:25 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -46,10 +46,11 @@ public:
     QRadioButton *recHexSel;
     QRadioButton *recCharSel;
     QCheckBox *timecheck;
-    QCheckBox *stopDisSelBox;
+    QCheckBox *linecheckBox;
     QPlainTextEdit *ReceiveText;
     QPushButton *pushButton_2;
     QPushButton *RecClrButton;
+    QCheckBox *stopDisSelBox;
     QFrame *frame_2;
     QPlainTextEdit *SendTextEdit;
     QWidget *horizontalLayoutWidget_2;
@@ -126,7 +127,7 @@ public:
         label_8->setFont(font1);
         horizontalLayoutWidget = new QWidget(frame);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(74, 0, 275, 41));
+        horizontalLayoutWidget->setGeometry(QRect(74, 0, 271, 41));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -152,15 +153,16 @@ public:
 
         horizontalLayout->addWidget(timecheck);
 
-        stopDisSelBox = new QCheckBox(horizontalLayoutWidget);
-        stopDisSelBox->setObjectName(QString::fromUtf8("stopDisSelBox"));
-        stopDisSelBox->setFont(font1);
+        linecheckBox = new QCheckBox(horizontalLayoutWidget);
+        linecheckBox->setObjectName(QString::fromUtf8("linecheckBox"));
+        linecheckBox->setFont(font1);
 
-        horizontalLayout->addWidget(stopDisSelBox);
+        horizontalLayout->addWidget(linecheckBox);
 
         ReceiveText = new QPlainTextEdit(frame);
         ReceiveText->setObjectName(QString::fromUtf8("ReceiveText"));
         ReceiveText->setGeometry(QRect(0, 40, 341, 481));
+        ReceiveText->setMaximumSize(QSize(341, 481));
         QFont font2;
         font2.setPointSize(12);
         font2.setKerning(true);
@@ -183,6 +185,10 @@ public:
         RecClrButton->setObjectName(QString::fromUtf8("RecClrButton"));
         RecClrButton->setGeometry(QRect(260, 530, 75, 24));
         RecClrButton->setFont(font1);
+        stopDisSelBox = new QCheckBox(frame);
+        stopDisSelBox->setObjectName(QString::fromUtf8("stopDisSelBox"));
+        stopDisSelBox->setGeometry(QRect(100, 530, 91, 20));
+        stopDisSelBox->setFont(font1);
         frame_2 = new QFrame(tab);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
         frame_2->setGeometry(QRect(350, 110, 441, 451));
@@ -428,14 +434,15 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "\345\267\245\345\205\267\347\256\261 @\345\220\276\344\271\220", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("MainWindow", "\346\216\245\346\224\266\346\225\260\346\215\256\357\274\232", 0, QApplication::UnicodeUTF8));
         recHexSel->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
         recCharSel->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
         timecheck->setText(QApplication::translate("MainWindow", "\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
-        stopDisSelBox->setText(QApplication::translate("MainWindow", "\345\201\234\346\255\242\346\230\276\347\244\272", 0, QApplication::UnicodeUTF8));
+        linecheckBox->setText(QApplication::translate("MainWindow", "\346\215\242\350\241\214", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("MainWindow", "\346\225\260\346\215\256\344\277\235\345\255\230", 0, QApplication::UnicodeUTF8));
         RecClrButton->setText(QApplication::translate("MainWindow", "\346\270\205\347\251\272", 0, QApplication::UnicodeUTF8));
+        stopDisSelBox->setText(QApplication::translate("MainWindow", "\345\201\234\346\255\242\346\230\276\347\244\272", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("MainWindow", "\345\217\221\351\200\201\346\225\260\346\215\256\357\274\232", 0, QApplication::UnicodeUTF8));
         sendHexSel->setText(QApplication::translate("MainWindow", "HEX", 0, QApplication::UnicodeUTF8));
         sendCharSel->setText(QApplication::translate("MainWindow", "\345\255\227\347\254\246", 0, QApplication::UnicodeUTF8));
