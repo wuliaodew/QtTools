@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qextserialbase.h'
 **
-** Created: Thu May 30 16:29:53 2013
+** Created: Thu May 30 22:26:15 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!

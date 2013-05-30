@@ -5,6 +5,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
 
     emit ui->searchbutton->click();
@@ -23,6 +24,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->sendTextEdit_2->viewport()->installEventFilter(this);
     ui->sendTextEdit_3->viewport()->installEventFilter(this);
     ui->sendTextEdit_4->viewport()->installEventFilter(this);
+
+    QList<int> splreclist;
+    splreclist.append(341);
+    splreclist.append(0);
+    ui->splitter_rec->setSizes(splreclist);
+
 }
 
 MainWindow::~MainWindow()

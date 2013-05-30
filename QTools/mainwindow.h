@@ -10,6 +10,7 @@
 #include <QFileDialog>
 #include <QString>
 #include <QDesktopServices>
+#include <QList>
 
 namespace Ui {
 class MainWindow;
